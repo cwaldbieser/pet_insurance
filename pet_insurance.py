@@ -61,6 +61,7 @@ def main(args):
                 "monthly_premium",
                 "annual_premium",
                 "coverage",
+                "deductible",
                 "co_insurance",
                 "total_annual_spend",
             ]
