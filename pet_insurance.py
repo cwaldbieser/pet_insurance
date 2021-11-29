@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 import argparse
+import csv
 
 import tabulate
 
@@ -52,6 +53,19 @@ def main(args):
                 table.append(row)
     table.sort(key=lambda x: (x[0], x[6]))
     print(tabulate.tabulate(table, headers=headers, tablefmt="github", floatfmt=".2f"))
+    with open("./pet_insurance_stats.csv", "w") as f:
+        writer = csv.writer(f)
+        writer.writerow(
+            [
+                "vet_bill",
+                "monthly_premium",
+                "annual_premium",
+                "coverage",
+                "co_insurance",
+                "total_annual_spend",
+            ]
+        )
+        writer.writerows(table)
 
 
 if __name__ == "__main__":
